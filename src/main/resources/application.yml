@@ -1,9 +1,24 @@
+spring:
+  application:
+    name: @project.artifactId@
+
 server:
-  port: 1234
+  port: 2333
 
 eureka:
   client:
-    register-with-eureka: false
-    fetch-registry: false
     service-url:
       defaultZone: http://localhost:1234/eureka/
+
+zuul:
+  routes:
+    serviceId:
+      serviceId: your_server_id
+      path: /**
+    serviceId2:
+      serviceId: your_server2_id
+      path: /**
+
+ribbon:
+  ReadTimeout: 10000
+  ConnectTimeout: 10000
